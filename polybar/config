@@ -1,0 +1,383 @@
+[colors]
+
+;== main colors ==;
+
+;почти чёрный
+background = #1F1F1F
+foreground = #e6e6e6
+
+;белый
+foreground-alt = #5c5c5c
+
+foreground2 = #000000
+
+;серый
+background-alt = #5c5c5c
+
+;== shades ==;
+
+;темный синий
+shade1 = #c0d6e4
+
+;голубой
+shade2 = #33a1a3
+
+;фиолетовый
+shade3 = #ff6666
+
+;светло-желтый
+;shade4 = #FDECC1
+;shade4 = #829ec2
+shade4 = #e09c3b
+
+;красный
+shade5 = #F22303
+
+;зелёный
+shade6 = #828144
+
+;оранжевый
+shade7 = #b36600
+
+;розовый
+shade8 = #9e006f
+
+;слабо-зеленый
+shade9 = #00ced1
+
+shade10 = #ff7f50
+
+shade11 = #87cdbd
+
+shade12 = #5ac18e
+
+shade13 = #ffe4e1
+
+;------------;
+; TOPBAR    ;
+;------------;
+
+[bar/PolybarTop]
+line-size = 0
+line-color = 
+
+border-size = 0
+border-color = 
+
+;------------;
+; DIMENSIONS ;
+;------------;
+
+width = 100%
+height = 30
+offset-y = 0
+offset-x = 0
+
+border-top-size = 5
+border-bottom-size = 5
+border-right-size = 15
+border-left-size = 15
+
+
+;----------;
+; LOCATION ;
+;----------;
+
+bottom = false
+
+;-------;
+; FONTS ;
+;-------;
+
+font-0 = Ubuntu-R:pixelsize=10;3
+;font-1 = fa-solid-900:pixelsize=9;3
+;font-2 = fa-regular-400:pixelsize=9;3
+;font-3 = fa-brands-400:pixelsize=9;3
+
+font-1 = "Font Awesome 5 Free:style=Solid:pixelsize=10;3"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=10;3"
+font-3 = "Font Awesome 5 Brands:pixelsize=10;3"
+font-4 = "3270Narrow Nerd Font Mono:style=Medium:pixelsize=21;5"
+
+;---------------;
+; MISCELLANEOUS ;
+;---------------;
+
+radius = 15.0
+fixed-center = true
+padding-left = 0
+padding-right = 0
+
+module-margin-left = 0
+module-margin-right = 0
+
+modules-left = launcher bspwm
+modules-center = xwindow
+modules-right = xkeyboard pulseaudio cpu memory cputemp date sysmenu
+
+tray-position = hidden
+tray-padding =2 
+;tray-transparent = true
+;tray-background = #0063ff
+
+wm-restack = bspwm
+;wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+;separator = %{F#A4A4A4}  |  %{F}
+
+locale = ru_RU.UTF-8 
+
+;---------;
+; MODULES ;
+;---------;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/xwindow]
+type = internal/xwindow
+format-foreground = ${colors.foreground}
+;format-background = ${colors.shade2}
+label = %title%
+label-maxlen = 80
+format-padding = 2
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground2}
+format-foreground = ${colors.foreground2}
+label-layout = %layout%
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+format-background = ${colors.shade10}
+format-padding = 4
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground2}
+label = %percentage:2%%
+label-foreground = ${colors.foreground2}
+format-background = ${colors.shade12}
+format-padding = 3
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/memory]
+type = internal/memory
+interval = 1
+format-prefix = "  "
+format-prefix-foreground = ${colors.foreground2}
+label = %percentage_used%%
+label-foreground = ${colors.foreground2}
+format-padding = 3
+format-background = ${colors.shade13}
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/date]
+type = internal/date
+interval = 1
+
+date =
+date-alt =
+
+time = " %A, %e %B, %H:%M:%S"
+time-alt = %H:%M:%S
+
+format-prefix =   
+format-prefix-foreground = ${colors.foreground2}
+format-foreground = ${colors.foreground2}
+format-background = ${colors.shade3}
+
+label = %date% %time%
+
+format-padding = 3
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume =    <label-volume>
+format-volume-foreground = ${colors.foreground2}
+label-volume = %percentage%%
+label-volume-foreground = ${colors.foreground2}
+
+format-volume-background = ${colors.shade1}
+
+format-volume-padding = 3
+
+label-muted =   mute
+label-muted-foreground = ${colors.foreground2}
+label-muted-background = ${colors.shade1}
+label-muted-padding = 3
+
+
+bar-volume-width = 15
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #B2535B
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 4
+bar-volume-fill = ─
+bar-volume-fill-font = 4
+bar-volume-empty = ─
+bar-volume-empty-font = 4
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/cputemp]
+type = custom/script
+
+warn-temperature = 60
+
+;label-background = ${colors.bg}
+;label-padding = 0
+;label-underline = ${colors.modfg}
+
+exec = sensors | grep --max-count=1 "CPU Temperature:" | awk '{print substr($0,22,3)}'
+;tail = true
+interval = 1
+
+label = " %output%°C"
+
+;
+
+format-padding = 4
+
+format-background = ${colors.shade9}
+format-foreground = ${colors.foreground2}
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/scripts/openweathermap-fullfeatured.sh
+interval = 600
+label-font = 5
+format-underline = ${colors.secondary}
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/launcher]
+type = custom/text
+content =  Gentoo
+;content =  Arch
+
+; "content" has the same properties as "format-NAME"
+content-background = ${colors.shade11}
+content-foreground = ${colors.foreground2}
+content-padding = 4
+format-padding = 3
+
+; "click-(left|middle|right)" will be executed using "/usr/bin/env sh -c $COMMAND"
+click-left = ~/.config/polybar/scripts/launcher.sh &
+;;click-middle = ~/.config/polybar/shades/scripts/launcher-full
+;click-right = ~/.config/polybar/scripts/color-switch.sh &
+
+; "scroll-(up|down)" will be executed using "/usr/bin/env sh -c $COMMAND"
+;;scroll-up = ~/.config/polybar/shades/scripts/launcher.sh &
+;;scroll-down = ~/.config/polybar/shades/scripts/color-switch.sh &
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/sysmenu]
+type = custom/text
+content = ⏻
+
+content-background = ${colors.shade11}
+content-foreground = ${colors.foreground2}
+content-padding = 3
+format-padding = 2
+
+click-left = ~/.config/polybar/scripts/powermenu.sh &
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/bspwm]
+type = internal/bspwm
+
+pin-workspaces = true
+inline-mode = true
+enable-click = true
+enable-scroll = false
+reverse-scroll = false
+fuzzy-match = true
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-default = 
+
+format = <label-state> <label-mode>
+
+format-background = ${colors.shade4}
+
+label-monitor = VGA-1
+
+;label-dimmed-foreground = #555
+;label-dimmed-underline = ${bar/top.background}
+;label-dimmed-focused-background = #f00
+
+label-focused = 
+label-focused-foreground = ${colors.foreground2}
+
+label-occupied = 
+label-occupied-foreground = ${colors.foreground2}
+
+label-urgent = 
+label-urgent-foreground = ${colors.background}
+
+
+label-empty = 
+label-empty-foreground = ${colors.background}
+
+label-focused-padding = 2
+label-urgent-padding = 2
+label-occupied-padding = 2
+label-empty-padding = 2
+format-padding = 2
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
