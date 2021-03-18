@@ -13,4 +13,5 @@ Status bar: polybar
 ![Image](https://github.com/woonlyst/bspwm/blob/main/screenshots/screen2.jpg)
 ![Image](https://github.com/woonlyst/bspwm/blob/main/screenshots/screen3.jpg)
 ![Image](https://github.com/woonlyst/bspwm/blob/main/screenshots/screen4.jpg)
-![Image](https://github.com/woonlyst/bspwm/blob/main/screenshots/wall2.jpg)
+
+Wall picture are inside screenshots folder
