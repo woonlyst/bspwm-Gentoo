@@ -1,65 +1,14 @@
 [colors]
 
-;== main colors ==;
-
-;почти чёрный
-background = #1F1F1F
-foreground = #e6e6e6
-
-;белый
-foreground-alt = #5c5c5c
-
-foreground2 = #000000
-
-;серый
-background-alt = #5c5c5c
-
-;== shades ==;
-
-;темный синий
-shade1 = #c0d6e4
-
-;голубой
-shade2 = #33a1a3
-
-;фиолетовый
-shade3 = #ff6666
-
-;светло-желтый
-;shade4 = #FDECC1
-;shade4 = #829ec2
-shade4 = #e09c3b
-
-;красный
-shade5 = #F22303
-
-;зелёный
-shade6 = #828144
-
-;оранжевый
-shade7 = #b36600
-
-;розовый
-shade8 = #9e006f
-
-;слабо-зеленый
-shade9 = #00ced1
-
-shade10 = #ff7f50
-
-shade11 = #87cdbd
-
-shade12 = #5ac18e
-
-shade13 = #ffe4e1
+include-file = ~/.config/polybar/colors.ini
 
 ;------------;
 ; TOPBAR    ;
 ;------------;
 
 [bar/PolybarTop]
-line-size = 0
-line-color = 
+line-size = 5
+line-color = ${colors.shade8}
 
 border-size = 0
 border-color = 
@@ -69,14 +18,14 @@ border-color =
 ;------------;
 
 width = 100%
-height = 30
+height = 27
 offset-y = 0
 offset-x = 0
 
 border-top-size = 5
 border-bottom-size = 5
-border-right-size = 15
-border-left-size = 15
+border-right-size = 10
+border-left-size = 10
 
 
 ;----------;
@@ -103,7 +52,7 @@ font-4 = "3270Narrow Nerd Font Mono:style=Medium:pixelsize=21;5"
 ; MISCELLANEOUS ;
 ;---------------;
 
-radius = 15.0
+radius = 0.0
 fixed-center = true
 padding-left = 0
 padding-right = 0
@@ -117,10 +66,10 @@ modules-right = xkeyboard pulseaudio cpu memory cputemp date sysmenu
 
 tray-position = hidden
 tray-padding =2 
-;tray-transparent = true
+tray-transparent = true
 ;tray-background = #0063ff
 
-wm-restack = bspwm
+;wm-restack = bspwm
 ;wm-restack = i3
 
 ;override-redirect = true
@@ -134,7 +83,7 @@ wm-restack = bspwm
 cursor-click = pointer
 cursor-scroll = ns-resize
 
-;separator = %{F#A4A4A4}  |  %{F}
+separator = %{F#A4A4A4} %{F}
 
 locale = ru_RU.UTF-8 
 
@@ -147,10 +96,10 @@ locale = ru_RU.UTF-8
 [module/xwindow]
 type = internal/xwindow
 format-foreground = ${colors.foreground}
-;format-background = ${colors.shade2}
+;format-background = ${colors.shade1}
 label = %title%
 label-maxlen = 80
-format-padding = 2
+;format-padding = 2
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -159,14 +108,15 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground2}
-format-foreground = ${colors.foreground2}
+format-prefix-foreground = ${colors.foreground}
+format-foreground = ${colors.foreground}
 label-layout = %layout%
 
 label-indicator-padding = 2
 label-indicator-margin = 1
-format-background = ${colors.shade10}
+format-background = ${colors.shade2}
 format-padding = 4
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -174,10 +124,10 @@ format-padding = 4
 type = internal/cpu
 interval = 1
 format-prefix = "  "
-format-prefix-foreground = ${colors.foreground2}
+format-prefix-foreground = ${colors.foreground}
 label = %percentage:2%%
-label-foreground = ${colors.foreground2}
-format-background = ${colors.shade12}
+label-foreground = ${colors.foreground}
+format-background = ${colors.shade3}
 format-padding = 3
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -186,11 +136,11 @@ format-padding = 3
 type = internal/memory
 interval = 1
 format-prefix = "  "
-format-prefix-foreground = ${colors.foreground2}
+format-prefix-foreground = ${colors.foreground}
 label = %percentage_used%%
-label-foreground = ${colors.foreground2}
+label-foreground = ${colors.foreground}
 format-padding = 3
-format-background = ${colors.shade13}
+format-background = ${colors.shade4}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -205,9 +155,9 @@ time = " %A, %e %B, %H:%M:%S"
 time-alt = %H:%M:%S
 
 format-prefix =   
-format-prefix-foreground = ${colors.foreground2}
-format-foreground = ${colors.foreground2}
-format-background = ${colors.shade3}
+format-prefix-foreground = ${colors.foreground}
+format-foreground = ${colors.foreground}
+format-background = ${colors.shade5}
 
 label = %date% %time%
 
@@ -219,17 +169,17 @@ format-padding = 3
 type = internal/pulseaudio
 
 format-volume =    <label-volume>
-format-volume-foreground = ${colors.foreground2}
+format-volume-foreground = ${colors.foreground}
 label-volume = %percentage%%
-label-volume-foreground = ${colors.foreground2}
+label-volume-foreground = ${colors.foreground}
 
-format-volume-background = ${colors.shade1}
+format-volume-background = ${colors.shade6}
 
 format-volume-padding = 3
 
 label-muted =   mute
-label-muted-foreground = ${colors.foreground2}
-label-muted-background = ${colors.shade1}
+label-muted-foreground = ${colors.foreground}
+label-muted-background = ${colors.shade6}
 label-muted-padding = 3
 
 
@@ -248,7 +198,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 4
 bar-volume-empty = ─
 bar-volume-empty-font = 4
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = ${colors.foreground}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -271,8 +221,8 @@ label = " %output%°C"
 
 format-padding = 4
 
-format-background = ${colors.shade9}
-format-foreground = ${colors.foreground2}
+format-background = ${colors.shade8}
+format-foreground = ${colors.foreground}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -291,13 +241,14 @@ content =  Gentoo
 ;content =  Arch
 
 ; "content" has the same properties as "format-NAME"
-content-background = ${colors.shade11}
-content-foreground = ${colors.foreground2}
+content-background = ${colors.shade6}
+content-foreground = ${colors.foreground}
 content-padding = 4
 format-padding = 3
 
 ; "click-(left|middle|right)" will be executed using "/usr/bin/env sh -c $COMMAND"
 click-left = ~/.config/polybar/scripts/launcher.sh &
+click-right = ~/.config/polybar/scripts/color-switch.sh &
 ;;click-middle = ~/.config/polybar/shades/scripts/launcher-full
 ;click-right = ~/.config/polybar/scripts/color-switch.sh &
 
@@ -311,8 +262,8 @@ click-left = ~/.config/polybar/scripts/launcher.sh &
 type = custom/text
 content = ⏻
 
-content-background = ${colors.shade11}
-content-foreground = ${colors.foreground2}
+content-background = ${colors.shade8}
+content-foreground = ${colors.foreground}
 content-padding = 3
 format-padding = 2
 
@@ -348,10 +299,10 @@ label-monitor = VGA-1
 ;label-dimmed-focused-background = #f00
 
 label-focused = 
-label-focused-foreground = ${colors.foreground2}
+label-focused-foreground = ${colors.foreground}
 
-label-occupied = 
-label-occupied-foreground = ${colors.foreground2}
+label-occupied = 
+label-occupied-foreground = ${colors.foreground}
 
 label-urgent = 
 label-urgent-foreground = ${colors.background}
@@ -365,6 +316,19 @@ label-urgent-padding = 2
 label-occupied-padding = 2
 label-empty-padding = 2
 format-padding = 2
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/color-switch]
+type = custom/text
+content = Col
+
+content-background = ${colors.background}
+content-foreground = ${colors.foreground}
+
+content-padding = 2
+
+click-left = ~/.config/polybar/scripts/color-switch.sh &
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
