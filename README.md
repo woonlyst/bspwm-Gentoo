@@ -5,7 +5,7 @@ Basic packages:
 WM: bspwm + sxhkd  / 
 Compositor: picom  / 
 Notification: dunst  / 
-Terminal: kitty  / 
+Terminal: urxvt  / 
 Launcher: rofi  / 
 Status bar: polybar
 
