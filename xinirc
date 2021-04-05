@@ -1,0 +1,10 @@
+xsetroot -cursor_name left_ptr &
+
+xrdb -merge ~/.Xresources
+
+sxhkd &
+exec dbus-launch bspwm
+
+ck-launch-session
+
+
